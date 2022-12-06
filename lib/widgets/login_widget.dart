@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:aicte_app/widgets/helper_widgets.dart';
 import 'package:aicte_app/utils/styles.dart';
 import 'package:aicte_app/main.dart';
 import 'package:aicte_app/forgot_password_page.dart';
@@ -30,58 +29,82 @@ class _LoginWidgetState extends State<LoginWidget> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 40.0),
+        padding: const EdgeInsets.all(20),
         child: Column(
           children: [
+            const SizedBox(height: 80,),
+            Image.asset('assets/images/AICTE-logo.png'),
+            Image.asset('assets/images/AICTE-text.png'),
             TextField(
               controller: emailController,
               cursorColor: Colors.white,
-              style: appTextFormFieldStyle,
               textInputAction: TextInputAction.next,
               decoration:
-                  AppInputStyle.textFieldStyle(hintTextString: "Enter Email"),
+                  const InputDecoration(labelText: 'Email'),
             ),
-            addVerticalSpace(24.0),
+            const SizedBox(height: 4,),
             TextField(
               controller: passwordController,
               obscureText: true,
               cursorColor: Colors.white,
-              style: appTextFormFieldStyle,
               textInputAction: TextInputAction.next,
-              decoration: AppInputStyle.textFieldStyle(
-                  hintTextString: "Enter Password"),
+              decoration:
+                  const InputDecoration(labelText: 'Password'),
             ),
-            addVerticalSpace(24.0),
+            const SizedBox(height: 20,),
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(50)
+              ),
               onPressed: signIn,
-              icon: const Icon(Icons.lock_open, size: 24),
-              style: appButtonStyle,
-              label: const Text('SIGN IN'),
+              icon: const Icon(Icons.lock_open, size: 20, color: Colors.white,),
+              label: const Text(
+                'Sign In',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20),
+                ),
             ),
             const SizedBox(
-              height: 20,
+              height: 24,
             ),
             GestureDetector(
-              child: Text(
+              child: const Text(
                 'Forgot Password?',
+                style: TextStyle(
+                      fontSize: 16,
+                      decoration: TextDecoration.underline,
+                      color: Colors.teal,
+                      fontWeight: FontWeight.w500,
+                      ),
               ),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(
-                    builder: (context) => ForgotPasswordPage(),
+                    builder: (context) => const ForgotPasswordPage(),
                   )),
             ),
             const SizedBox(
-              height: 20,
+              height: 16,
             ),
             RichText(
                 text: TextSpan(
-                    text: 'No account?   ',
-                    style: TextStyle(color: Colors.black),
-                    children: [
-                  TextSpan(
+                    text: 'Don\'t have an account?  ',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 16
+                      ),
+                  children: [
+                    TextSpan(
                       recognizer: TapGestureRecognizer()
                         ..onTap = widget.onClickedSignUp,
-                      text: 'Sign Up')
+                      text: 'Sign Up',
+                      style: const TextStyle(
+                        decoration: TextDecoration.underline,
+                        color: Colors.teal,
+                        fontWeight: FontWeight.w500,
+                      )
+                      
+                      )
                 ]))
           ],
         ),
@@ -104,7 +127,12 @@ class _LoginWidgetState extends State<LoginWidget> {
       print(e);
 
       const snackBar = SnackBar(
-        content: Text('Error Signing In. Please Check email or password.'),
+        content: Text(
+          'Error Signing In. Please Check your email or password.',
+          style: TextStyle(
+            color: Colors.white
+          ),
+          ),
         backgroundColor: Colors.red,
       );
 

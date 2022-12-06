@@ -31,43 +31,49 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         padding: EdgeInsets.all(16),
         child: Form(
           key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Receive an email to \n reset your password.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              TextFormField(
-                controller: emailController,
-                cursorColor: Colors.white,
-                textInputAction: TextInputAction.done,
-                decoration: const InputDecoration(labelText: 'Email'),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (email) =>
-                    email != null && !EmailValidator.validate(email)
-                        ? 'Enter a valid email'
-                        : null,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              ElevatedButton.icon(
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size.fromHeight(50),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(height: 80,),
+                Image.asset('assets/images/AICTE-logo.png'),
+                Image.asset('assets/images/AICTE-text.png'),
+                const Text(
+                  'Receive an email to \n reset your password.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16),
                 ),
-                icon: const Icon(Icons.email_outlined),
-                label: const Text(
-                  'Reset password',
-                  style: TextStyle(fontSize: 24),
+                const SizedBox(
+                  height: 20,
                 ),
-                onPressed: resetPassword,
-              ),
-            ],
+                TextFormField(
+                  controller: emailController,
+                  cursorColor: Colors.white,
+                  textInputAction: TextInputAction.done,
+                  decoration: const InputDecoration(labelText: 'Email'),
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (email) =>
+                      email != null && !EmailValidator.validate(email)
+                          ? 'Enter a valid email'
+                          : null,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton.icon(
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size.fromHeight(50),
+                  ),
+                  icon: const Icon(Icons.email_outlined,size: 20, color: Colors.white),
+                  label: const Text(
+                    'Reset password',
+                    style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20),
+                  ),
+                  onPressed: resetPassword,
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -86,7 +92,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           .sendPasswordResetEmail(email: emailController.text.trim());
 
       const snackBar = SnackBar(
-        content: Text('Password Reset Email Sent'),
+        content: Text(
+          'Password Reset Email Sent',
+          style: TextStyle(
+            color: Colors.white),
+          ),
         backgroundColor: Colors.red,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -94,7 +104,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     } on FirebaseAuthException catch (e) {
       print(e);
       const snackBar = SnackBar(
-        content: Text('Unable to change password!'),
+        content: Text(
+          'Unable to change password!',
+          style: TextStyle(
+            color: Colors.white),
+          ),
         backgroundColor: Colors.red,
       );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);

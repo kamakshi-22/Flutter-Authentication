@@ -23,11 +23,13 @@ class MyApp extends StatelessWidget {
       //scaffoldMessengerKey: Utils().messengerKey,
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      // theme: ThemeData.dark().copyWith(
-      //     colorScheme: ColorScheme.fromSwatch(
-      //         primarySwatch:
-      //             primarySwatch.copyWith(secondary: Colors.tealAccent))),
+      title: 'AICTE Android App',
+      //theme: ThemeData.dark(),
+      theme: ThemeData.dark().copyWith(
+        colorScheme: const ColorScheme.dark().copyWith(
+          primary: Colors.teal,
+          ),
+        ),
       home: MainPage(),
     );
   }

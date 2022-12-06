@@ -1,16 +1,20 @@
-# aicte_app
+# Flutter Project
+A practice project for applying firebase authentication and webview in flutter.
 
-A new Flutter project.
 
-## Getting Started
-<img src="images/a1.PNG" width="400" height="500" >
-This project is a starting point for a Flutter application.
+## Firebase Authentication
+Dependency used: [firebase_auth](https://pub.dev/packages/firebase_auth)
 
-A few resources to get you started if this is your first Flutter project:
+<p float="left">
+  <img src ="https://user-images.githubusercontent.com/55135926/205827977-96855361-eff2-457a-8d7f-55d5192d900a.png" width = 300></img>
+  <img src ="https://user-images.githubusercontent.com/55135926/205827035-a411d414-5615-4bcb-a912-545e1a150112.png" width = 300 hspace="30"></img>
+  <img src ="https://user-images.githubusercontent.com/55135926/205824724-1dfece36-2125-4aa1-a85f-a47de10e52f1.png" width = 300></img>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Webview and Linking
+Dependency used: [url_launcher](https://pub.dev/packages/url_launcher)
+<p float="left">
+  <img src ="https://user-images.githubusercontent.com/55135926/205831727-def29144-1bbc-458b-af50-0260174430ab.png" width = 300></img>
+  <img src ="https://user-images.githubusercontent.com/55135926/205832478-07ed0008-dd55-43f1-8d33-8de95a717adc.jpg" width = 300 hspace="30"></img>
+  <img src ="https://user-images.githubusercontent.com/55135926/205831876-e04ed1be-834a-41eb-85f8-3a253f9cab62.png" width = 300 height = 595></img>
+</p>
